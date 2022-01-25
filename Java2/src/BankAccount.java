@@ -26,7 +26,7 @@ public class BankAccount {
 	}
 	
 	public String toString() {
-		return name+"'s bank account has "+amount+". The interest rate is "+intRate+"%.";
+		return name+"'s bank account has $"+amount+". The interest rate is "+intRate+"%.";
 	}
 	
 	public static void main (String[] args) {
