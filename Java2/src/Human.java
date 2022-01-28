@@ -1,5 +1,5 @@
 
-public class Object {
+public class Human {
 	
 	
 	private int age;
@@ -7,7 +7,7 @@ public class Object {
 	private String name;
 	
 	//constructor
-	public Object(int age, int height, String name) {
+	public Human(int age, int height, String name) {
 		this.age=age;
 		this.height=height;
 		this.name=name; 
@@ -33,13 +33,13 @@ public class Object {
 		height+=foodAmount/10;
 	}
 	
-	public boolean isTaller(Object other) {
+	public boolean isTaller(Human other) {
 		return height>other.height;
 	}
 	
 	public static void main(String[] args) {
-		Object a=new Object(0, 0, "name1");
-		Object b=new Object(0, 1, "name2");
+		Human a=new Human(0, 0, "name1");
+		Human b=new Human(0, 1, "name2");
 		a.eat(105);
 		System.out.println(a.isTaller(b));
 		System.out.println(a);
