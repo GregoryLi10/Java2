@@ -16,7 +16,7 @@ public class Wrestler {
 	}
 	
 	public String toString() {
-		return "My name is "+name+". I wetigh "+weight+" units. My outfit is R:"+outfit.getRed()+", G:"+outfit.getGreen()+", B:"+outfit.getBlue()+". I have "+wins+" wins.";
+		return "My name is "+name+". I weigh "+weight+" units. My outfit is R:"+outfit.getRed()+", G:"+outfit.getGreen()+", B:"+outfit.getBlue()+". I have "+wins+" wins.";
 	}
 	
 	public String getName() {
@@ -92,13 +92,21 @@ public class Wrestler {
 	}
 	
 	public static void main(String[] args) {
-		Wrestler[] allies={new Wrestler("a", 99, Color.black, 150), new Wrestler("a", 100, Color.black, 150)};
-		Wrestler[] opponents={new Wrestler("a", 100, Color.black, 150), new Wrestler("a", 100, Color.black, 150), new Wrestler("a", 100, Color.black, 150)};
+		Wrestler[] allies={new Wrestler("a", 99, Color.black, 150), new Wrestler("b", 100, Color.black, 150)};
+		Wrestler[] opponents={new Wrestler("c", 100, Color.white, 150), new Wrestler("d", 100, Color.black, 150), new Wrestler("e", 100, Color.black, 150)};
 		
 		Wrestler a=new Wrestler("wrestler a", 100, Color.black, 150);
 		Wrestler b=new Wrestler("wrestler b", 100, Color.blue, 150);
 		System.out.println(a.intimidate());
 		System.out.println(a.fight(b));
 		System.out.println(a.tagTeam(allies, opponents));
+		System.out.println(a); System.out.println(b);
+		for (Wrestler t: allies) {
+			System.out.println(t);
+		}
+		for (Wrestler t: opponents) {
+			System.out.println(t);
+		}
+		
 	}
 }
