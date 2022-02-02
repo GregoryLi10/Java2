@@ -31,9 +31,9 @@ public class Deck {
 		return a;
 	}
 	
-	public void shuffle(int n) {
+	public void shuffle() {
 		Card[] temp=new Card[deck.length];
-		for (int j=0; j<n; j++) {
+		for (int j=0; j<(int)(Math.random()*7)+5; j++) {
 			Card[][] split=new Card[2][26];
 			split[0]=Arrays.copyOfRange(deck, 0, 26);
 			split[1]=Arrays.copyOfRange(deck, 26, temp.length);
@@ -107,7 +107,7 @@ public class Deck {
 		System.out.println(Arrays.toString(a.getFirstN(3)));
 		a.sort();
 		System.out.println(a);
-		a.shuffle(10);
+		a.shuffle();
 		System.out.println(a);
 		Card[][]b=a.deal(5);
 		for (Card[] c:b)

@@ -15,9 +15,7 @@ public class DeckTester {
 				System.out.println(deck);
 				break;
 			case("shuffle"):
-				System.out.println("Enter number of shuffles:");
-				int x=in.nextInt();
-				deck.shuffle(x);
+				deck.shuffle();
 				System.out.println(deck);
 				break;
 			case("first"): 
