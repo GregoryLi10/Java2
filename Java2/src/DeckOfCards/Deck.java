@@ -1,3 +1,4 @@
+package DeckOfCards;
 import java.util.Arrays;
 
 public class Deck {
@@ -68,15 +69,50 @@ public class Deck {
 		}
 	}
 	
+	public Card[][] deal(int n) {
+		if (n<=0) return null;
+		Card[][] newDeck=new Card[n][52/n];
+		for (int i=0; i<newDeck.length; i++) {
+			for  (int j=0; j<newDeck[i].length; j++) {
+				newDeck[i][j]=deck[j+((52/n)*i)];
+			}
+		}
+		return newDeck;
+	}
+	
+	public Card[] bestHand(int n) {
+		if (n<=0) return null;
+		Card[][] dealt=deal(n); int index=0, max=0;
+		for (int i=0; i<dealt[0].length; i++) {
+			max+=dealt[0][i].getVal(); 
+		}
+		
+		for (int i=0; i<dealt.length; i++) {
+			int curr=0;
+			for (int j=0; j<dealt[i].length; j++) {
+				curr+=dealt[i][j].getVal();
+			}
+			if (curr>max) {
+				max=curr; 
+				index=i;
+			}
+		}
+		return dealt[index];
+	}
+	
 	public static void main (String[] args) {
 		Deck a=new Deck();
 		System.out.println(a);
 		System.out.println(a.getRandom());
-		System.out.println(Arrays.toString(a.getFirstN(5)));
+		System.out.println(Arrays.toString(a.getFirstN(3)));
 		a.sort();
 		System.out.println(a);
 		a.shuffle(10);
 		System.out.println(a);
+		Card[][]b=a.deal(5);
+		for (Card[] c:b)
+			System.out.println(Arrays.toString(c));
+		System.out.println(Arrays.toString(a.bestHand(10)));
 		
 	}
 	

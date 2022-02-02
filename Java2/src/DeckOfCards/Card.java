@@ -1,3 +1,4 @@
+package DeckOfCards;
 public class Card {
 	private String suit;
 	private int num;
