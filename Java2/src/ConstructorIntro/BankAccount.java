@@ -1,3 +1,4 @@
+package ConstructorIntro;
 
 public class BankAccount {
 	private String name; private double intRate; private int amount;

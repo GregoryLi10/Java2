@@ -1,3 +1,4 @@
+package CarGarage;
 
 public class Car {
 	private String name;

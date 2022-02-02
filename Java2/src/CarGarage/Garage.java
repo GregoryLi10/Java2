@@ -1,3 +1,4 @@
+package CarGarage;
 
 public class Garage {
 	public Car[] cars;
