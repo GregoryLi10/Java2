@@ -41,6 +41,15 @@ public class Class {
 		Student[] temp=students;
 		students=new Student[temp.length+1];
 		for (int i=0; i<temp.length; i++) {
+			if (temp[i]==null) {
+				students=new Student[temp.length];
+				for (int j=0; j<temp.length; j++) {
+					if (j!=i)
+					students[j]=temp[j];
+				}
+				students[i]=student;
+				return;
+			}
 			students[i]=temp[i];
 		}
 		students[temp.length]=student;
@@ -51,6 +60,7 @@ public class Class {
 		Student[] temp=students;
 		students=new Student[temp.length-1];
 		for (int i=0, j=0; i<temp.length; i++, j++) {
+			if (temp[i]==null) continue;
 			if (temp[i].getName().equals(name)) {
 				j--;
 				continue;

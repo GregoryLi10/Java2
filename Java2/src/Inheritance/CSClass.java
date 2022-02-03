@@ -21,6 +21,7 @@ public class CSClass extends Class{
 		System.out.println(getTeacher().getName()+" gives homework");
 		String[] a= {"groan", "yay!", "noooo", "oh no", "wait what is the homework again?"};
 		for (int i=0; i<getStudents().length; i++) {
+			if (getStudents()[i]==null) continue;
 			if (getStudents()[i].getName().equals("Gregory")) {
 				System.out.println(getStudents()[i].getName()+": yay!");
 				continue;
