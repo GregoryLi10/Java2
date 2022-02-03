@@ -59,15 +59,20 @@ public class Class {
 	public void removeStudent(String name) {
 		Student[] temp=students;
 		students=new Student[temp.length-1];
+		boolean a=false;
 		for (int i=0, j=0; i<temp.length; i++, j++) {
 			if (temp[i]==null) continue;
 			if (temp[i].getName().equals(name)) {
+				a=true;
 				j--;
 				continue;
 			}
 			students[j]=temp[i];
 		}
-		numStudents--;
+		if (a) 
+			numStudents--;
+		else 
+			students=temp;
 	}
 	
 	public void teach(int minutes) {
