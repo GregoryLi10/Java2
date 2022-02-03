@@ -1,4 +1,4 @@
-package ConstructorIntro;
+package Inheritance;
 
 public class Human {
 	
@@ -26,8 +26,16 @@ public class Human {
 		return height;
 	}
 	
+	public String getName() {
+		return name;
+	}
+	
+	public int height() {
+		return height;
+	}
+	
 	public String toString() {
-		return "I am "+name+", I am "+age+" years old, I am "+height+" cm.";
+		return "name: "+name+", age: "+age+", height: "+height;
 	}
 	
 	public void eat(int foodAmount) {
@@ -38,11 +46,15 @@ public class Human {
 		return height>other.height;
 	}
 	
-	public static void main(String[] args) {
-		Human a=new Human(0, 0, "name1");
-		Human b=new Human(0, 1, "name2");
-		a.eat(105);
-		System.out.println(a.isTaller(b));
-		System.out.println(a);
+	public void getOlder() {
+		age++;
 	}
+	
+//	public static void main(String[] args) {
+//		Human a=new Human(0, 0, "name1");
+//		Human b=new Human(0, 1, "name2");
+//		a.eat(105);
+//		System.out.println(a.isTaller(b));
+//		System.out.println(a);
+//	}
 }

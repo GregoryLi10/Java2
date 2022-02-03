@@ -1,4 +1,7 @@
 package ConstructorIntro;
+
+import Inheritance.Human;
+
 public class Classroom {
 
 	private String className;
