@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class codewars1 {
 	public static long digPow(int n, int p) {
 		if (n==0) return -1;
@@ -31,9 +33,62 @@ public class codewars1 {
 		  }
 		  return c==26;
 	  }
+	  
+	  public static int[] sortArray(int[] arr) {
+	    int[] a=new int[arr.length];
+	    for (int i=0, j=0; i<a.length; i++, j++){
+	      if (arr[i]%2!=0){
+	        a[j]=arr[i];
+	        continue;
+	      }
+	      j--;
+	    }
+	    Arrays.sort(a);
+	    int index=0;
+	    for (int i=0; i<a.length; i++) {
+	    	if (a[i]!=0) {
+	    		index=i;
+	    		break;
+	    	}
+	    }
+	    for (int i=0, j=index; i<a.length; i++){
+	      if (arr[i]%2!=0){
+	        arr[i]=a[j];
+	        j++;
+	      }
+	    }
+	    return arr;
+	  }
+	  
+	  public static boolean validateWord(String word) {
+		  int[] a=new int[word.length()];
+		    char[] b=new char[word.length()];
+		    word=word.toLowerCase();
+		    for (int i=0; i<word.length(); i++){
+		      for (int j=0; j<b.length; j++){
+		    	if (word.charAt(i)==b[j]) {
+		    		a[j]++; break;
+		    	}
+		    	else if (word.charAt(i)!=b[j]&&b[j]!=(char)0)
+		        	continue;
+		        else if (b[j]==(char)0) {
+		        	b[j]=word.charAt(i);
+		        	break;
+		        }
+		      }
+		    }
+		    
+		    for (int i=1; i<a.length; i++) {
+		    	if (b[i]==(char)0) break;
+		    	if (a[i]!=a[0]) return false;
+		    }
+		    return true;
+	  }
 	
 	public static void main(String[] args) {
-		System.out.println(digPow(46288, 3));
-		System.out.println(check("aAqweEqwpeoiz"));
+//		System.out.println(digPow(46288, 3));
+//		System.out.println(check("aAqweEqwpeoiz"));
+//		System.out.println(Arrays.toString(sortArray(new int[]{9,8,7,6,5,4,3,2,1,0})));
+//		System.out.println(validateWord("?abc:abc"));
 	}
 }
