@@ -1,16 +1,14 @@
 package BankAccount;
 
 public class BankAccount {
-	private String name; private double intRate; private int amount;
-	public BankAccount(String name, double intRate, int amount) {
+	private String name; private int amount;
+	public BankAccount(String name, int amount) {
 		this.name=name;
-		this.intRate=intRate;
 		this.amount=amount;
 	}
 	
-	public BankAccount(String name, double intRate) {
+	public BankAccount(String name) {
 		this.name=name;
-		this.intRate=intRate;
 		amount=0;
 	}
 	
@@ -22,20 +20,22 @@ public class BankAccount {
 		amount-=Math.abs(n);
 	}
 	
-	public void addInt() {
-		amount+=amount*(intRate/100);
+	public String toString() {
+		return name+"'s bank account has $"+amount+".";
 	}
 	
-	public String toString() {
-		return name+"'s bank account has $"+amount+". The interest rate is "+intRate/10+"%.";
+	public int getAmount() {
+		return amount;
+	}
+	
+	public String getName() {
+		return name;
 	}
 	
 	public static void main (String[] args) {
-		BankAccount a=new BankAccount("Gregory", 20, 500);
+		BankAccount a=new BankAccount("Gregory", 20);
 		BankAccount b=new BankAccount("Friedman", 50);
 		b.deposit(50);
-		a.addInt();
-		b.addInt();
 		a.deposit(500);
 		b.withdraw(20);
 		

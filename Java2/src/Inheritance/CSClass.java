@@ -6,7 +6,7 @@ public class CSClass extends Class{
 	private double CSSkill=0;
 	
 	public CSClass(Student[] students, Human teacher, int difficulty) {
-		super( students, teacher);
+		super(students, teacher);
 		this.subject="Computer Science";
 		this.difficulty=difficulty;
 	}
