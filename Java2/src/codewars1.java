@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class codewars1 {
@@ -84,11 +85,198 @@ public class codewars1 {
 		    }
 		    return true;
 	  }
+  
+	  public static int peakHeight(char[][] m) {
+	    boolean[][] a=new boolean[m.length][m[0].length];
+	    int c=0;
+	    for (int i=0; i<m.length; i++){
+		      for (int j=0; j<m[i].length; j++){
+		    	  if(m[i][j]==' ')
+			          a[i][j]=true;
+		      }
+	    }
+	    
+	    for (int i=0; i<m.length; i++){
+	      for (int j=0; j<m[i].length; j++){
+	        if (a[i][j])continue;
+	        else{
+	          c++;
+	          a[i][j]=true;
+	          for (int y=0; y<m[0].length; y++) {
+	        	  a[c-1][y]=true;
+	        	  a[m.length-c][y]=true;
+	          }
+	          for (int x=c; x<m.length-c; x++) {
+	        	  if (m[x][m[x].length-c-1]=='^') a[x][m[x].length-c-1]=true;
+	        	  else {
+		        	  for (int k=m[x].length-1; k>=0; k--) {
+		        		  if (a[x][k]||m[x][k]==' ') continue;
+		        		  a[x][k]=true; break;
+		        	  }
+	        	  }
+	        	  if (m[x][c]=='^') a[x][c]=true;
+	        	  else {
+        		  	for (int k=1; k<m[x].length; k++) {
+        		  		if (a[x][k]) continue;
+        		  		a[x][k]=true; break;
+		        	  }
+	        	  }
+	          }
+	          for (boolean[] q:a) {
+	        	  System.out.println(Arrays.toString(q));
+	          }
+	          System.out.println();
+	          break;
+	        }
+	      }
+	    }
+	    return c;
+	  }
+	  
+	  public static int calculateCombinations(char startPosition, int patternLength){
+		  char[][] let= {
+				  {'a', 'b', 'c'},
+				  {'d', 'e', 'f'},
+				  {'g', 'h', 'i'}};
+		  boolean[][] a=new boolean[3][3];
+		  
+		  for (int i=0; i<let.length; i++) {
+			  for (int j=0; j<let[i].length; j++) {
+				  
+			  }
+		  }
+		  
+		  return 0;
+	  }
+	  
+	  public static String intToRoman(int n) {
+		  String str="";
+		  int t=0;
+		  String[] romans = new String[] {"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"};
+		  int[] nums = new int[] {1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000};
+		  for (int i=nums.length-1; i>=0; i--) {
+			  t=n/nums[i];
+			  n%=nums[i];
+			  while (t>0) {
+				  str+=(romans[i]);
+				  t--;
+			  }
+		  }
+		  return str;
+	  }
+	  
+	  public static int fromRoman(String romanNumeral) {
+	      int n=0;
+		  String[] romans = new String[] {"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"};
+		  int[] nums = new int[] {1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000};
+		  for (int i=romanNumeral.length(); i>0; i--) {
+			  if (i>1&&(romanNumeral.substring(i-2, i).equals("IV")||romanNumeral.substring(i-2, i).equals("IX")||romanNumeral.substring(i-2, i).equals("XL")||romanNumeral.substring(i-2, i).equals("XC")||romanNumeral.substring(i-2, i).equals("CD")||romanNumeral.substring(i-2, i).equals("CM"))) {
+				  for (int j=0; j<romans.length; j++) {
+					  if (romans[j].length()==1) continue;
+					  if (romanNumeral.substring(i-2, i).equals(romans[j])) {
+						  n+=nums[j];
+						  i--;
+						  romanNumeral=romanNumeral.substring(0,i-1);
+						  break;
+					  }
+				  }
+			  }
+			  else {
+				  for (int j=0; j<romans.length; j++) {
+					  if (romanNumeral.substring(i-1, i).equals(romans[j])) {
+						  n+=nums[j];
+						  romanNumeral=romanNumeral.substring(0,i);
+						  break;
+					  }
+				  }
+			  }
+		  }
+		  return n;
+	  }
+	  
+	  public static int calculateSpace(int[][] rectangles) {
+//		  int[][] temp=rectangles;
+		  int area=0;
+		  for (int i=0; i<rectangles.length; i++) {
+			  area+=Math.abs((rectangles[i][2]-rectangles[i][0])*(rectangles[i][3]-rectangles[i][1]));
+		  }
+		  for (int i=0; i<rectangles.length-1; i++) {
+			  for (int j=i+1; j<rectangles.length; j++) {
+//				  if (rectangles[i][0]>=rectangles[j][0]&&rectangles[i][0]<rectangles)
+			  }
+		  }
+		  return area;
+	  }
+	  
+	  public codewars1 (String s) {
+		  solve(s);
+	  }
+	    
+	  public static String solve(String s) {
+		  ArrayList<Integer>arr=new ArrayList<Integer>();
+		  String[] aa=s.split(" ");
+		  char[][] a=new char[aa.length/2+1][];
+		  int[][] temp;
+		  temp=new int[a.length][];
+		  for (int i=0, j=0; j<aa.length; i++, j++) {
+			  if (aa[j].equals("+")||aa[j].equals("=")) {
+				  i--; continue;
+			  }
+			  a[i]=new char[aa[j].length()];
+			  for (int k=0; k<a[i].length; k++) {
+				  a[i][k]=aa[j].charAt(k);
+			  }
+			  temp[i]=new int[a[i].length];
+		  }
+		  for (char[] asd: a)
+			  System.out.println(Arrays.toString(asd));
+		  for (int[] asd: temp)
+			  System.out.println(Arrays.toString(asd));
+		  
+		  
+		  
+//		  for (int i=0; i<a.length; i++) {
+//			  if (a[i].equals("+")||a[i].equals("=")) continue;
+//			  temp[i]=new int[a[i].length];
+//		  }
+		  
+		  
+		  return null;
+	  }
+	  
+	  public static boolean check(int[][] sudoku) {
+	       for (int i=0; i<sudoku.length; i++) {
+	    	   for (int j=0; j<sudoku[i].length; j++) {
+	    		   if (sudoku[i][j]==0) return false;
+    	    	   for (int y=j+1; y<sudoku[i].length; y++) {
+    	    		   if (sudoku[i][y]==sudoku[i][j]) return false;
+	    		   }
+    	    	   for (int x=i+1; x<sudoku.length; x++) {
+	    			   if (sudoku[x][j]==sudoku[i][j]) return false;
+	    		   }
+	    	   }
+	       }
+	       for (int i=0; i<sudoku.length-2; i+=3) {
+    		   for (int j=0; j<sudoku[i].length-2; j+=3) {
+    			   int temp[]=new int[9]; int c=0;
+    			   for (int x=i; x<i+3; x++) {
+    				   for (int y=j; y<j+3; y++) {
+    					   temp[c]=sudoku[x][y]; c++;
+    				   }
+    			   }
+    			   for (int t=0; t<temp.length; t++) {
+					   for (int t1=t+1; t1<temp.length; t1++) {
+						   System.out.println(temp[t]+" "+temp[t1]);
+						   if (temp[t]==temp[t1]) return false;
+					   }
+				   }
+    		   }
+	       }
+	       return true;
+	  }
+	
 	
 	public static void main(String[] args) {
-//		System.out.println(digPow(46288, 3));
-//		System.out.println(check("aAqweEqwpeoiz"));
-//		System.out.println(Arrays.toString(sortArray(new int[]{9,8,7,6,5,4,3,2,1,0})));
-//		System.out.println(validateWord("?abc:abc"));
+		
 	}
 }
