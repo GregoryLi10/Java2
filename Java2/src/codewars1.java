@@ -207,10 +207,6 @@ public class codewars1 {
 		  }
 		  return area;
 	  }
-	  
-	  public codewars1 (String s) {
-		  solve(s);
-	  }
 	    
 	  public static String solve(String s) {
 		  ArrayList<Integer>arr=new ArrayList<Integer>();
@@ -274,7 +270,37 @@ public class codewars1 {
 	       }
 	       return true;
 	  }
-	
+
+//	private int a; private String s, original; private ArrayList<String> arr=new ArrayList<String>();
+//	public String decode(String r) {
+//		for (int c=0; c<r.length(); c++) {
+//			s="";
+//			r=r.toLowerCase();
+//			int index=0;
+//			for (int i=0; i<r.length(); i++) {
+//				if (r.charAt(i)>=97&&r.charAt(i)<123) {
+//					index=i; break;
+//				}
+//			}
+//			a=Integer.valueOf(r.substring(0, index));
+//			r=r.substring(index, r.length());
+//			arr.add(r);
+//			for (int j=0; j<r.length(); j++) {
+//				for (int i=0; i<26; i++) {
+//					if ((i*a)%26==r.charAt(j)-97) {
+//						index=i;
+//						break;
+//					}
+//				}
+//				s+=(char) (index+97);
+//			}
+//			arr.add(s);
+//			if (arr.get(c+1).equals(arr.get(0)))
+//				return s;
+//			else decode(a+arr.get(c));
+//		}
+//		return "Impossible to decode";
+//	}
 	
 	public static void main(String[] args) {
 		
