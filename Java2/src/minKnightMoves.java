@@ -17,10 +17,7 @@ public class minKnightMoves {
         			sx=ox+moves[j][0];
         			sy=oy+moves[j][1];
 	        		if (sx<0||sx>7||sy<0||sy>7) continue;
-	        		if (sx==fx&&sy==fy) {
-	        			
-	        			return c;
-	        		}
+	        		if (sx==fx&&sy==fy) return c;
 	        		temp.add(new int[] {sx, sy});
         		}
         		prev=i;
