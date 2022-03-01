@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class minKnightMoves {
 
 	
@@ -6,7 +7,7 @@ public class minKnightMoves {
       if (start.equals(finish)) return 0;
         int sx=start.charAt(0)-97, sy=start.charAt(1)-49, fx=finish.charAt(0)-97, fy=finish.charAt(1)-49;
         int[][]moves={{-2, -1}, {-1, -2},{1, -2}, {2, -1}, {2, 1}, {1, 2}, {-1, 2}, {-2, 1}};
-        ArrayList<int[]> temp=new ArrayList<>();
+        ArrayList<int[]> temp=new ArrayList<int[]>();
         temp.add(new int[] {sx, sy});
         int prev=0;
         for (int c=1; sx!=fx||sy!=fy; c++) {   
