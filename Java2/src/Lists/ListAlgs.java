@@ -20,16 +20,20 @@ public class ListAlgs {
 		return arr;
 	}
 	
-	public static void reverse(ArrayList<Integer> list){
+	public static void reverse(ArrayList<Double> list){
 		for (int i=0; i<list.size()/2; i++)
 			list.set(i, list.set(list.size()-i-1, list.get(i)));
 	}
 	
 	public static void main (String[] args) {
 		System.out.println(random(10, 5));
-		ArrayList<Integer> a=new ArrayList<Integer>();
-		Collections.addAll(a, -1,-2,-3,4,5,6,7);
-		System.out.println(Arrays.toString(separate(a)));
+		
+		ArrayList<Integer> b=new ArrayList<Integer>();
+		Collections.addAll(b, -1,-3,-5,2,4,6);
+		System.out.println(Arrays.toString(separate(b)));
+		
+		ArrayList<Double> a=new ArrayList<Double>();
+		Collections.addAll(a, 1.0,2.0,3.0,4.0,5.0,6.0,7.0);
 		reverse(a);
 		System.out.println(a);
 	}
