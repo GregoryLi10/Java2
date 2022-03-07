@@ -22,11 +22,25 @@ public class CommonListAlgs {
 	}
 	
 	public static ArrayList<Integer> fibonacci(int n){
-		if (n==0) return null;
+		if (n<=0) return null;
 		if (n==1) return new ArrayList<Integer>(Arrays.asList(0));
 		ArrayList<Integer> list=new ArrayList<Integer>(Arrays.asList(0, 1));
 		for (int i=2; i<n; i++) 
 			list.add(list.get(i-1)+list.get(i-2));
+		return list;
+	}
+	
+	public static ArrayList<Integer> factors(int n){
+		if (n==0) return new ArrayList<Integer>(Arrays.asList(0));
+		if (n>0) {
+			ArrayList<Integer> list=new ArrayList<Integer>(Arrays.asList(1));
+			for (int i=2; i<=n; i++)
+				if (n%i==0) list.add(i);
+			return list;
+		}
+		ArrayList<Integer> list=new ArrayList<Integer>(Arrays.asList(-1));
+		for (int i=-2; i>=n; i--)
+			if (n%i==0) list.add(i);
 		return list;
 	}
 	public static void main (String[] args) {
@@ -35,5 +49,6 @@ public class CommonListAlgs {
 		System.out.println(avg(a));
 		System.out.println(min(a));
 		System.out.println(fibonacci(10));
+		System.out.println(factors(-10));
 	}
 }
