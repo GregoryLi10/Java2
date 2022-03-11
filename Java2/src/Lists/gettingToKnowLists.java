@@ -7,7 +7,7 @@ import java.util.Collections;
 public class gettingToKnowLists {
 
 	public static ArrayList<Character> removeSecond(ArrayList<Character> list) {
-		for (int i=0; i<list.size(); i+=2)
+		for (int i=list.size()-1; i>=0; i-=2)
 			list.remove(i);
 		return list;
 	}
